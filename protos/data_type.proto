@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+message error {
+    uint64 error_code = 1;
+    string error_msg = 2;
+}
+message colocation_puzzle {
+
+}
+
+message ticket_bundle {
+    string test = 1;
+}
+
+message ticket_l1 {
+
+}
+
+message ticket_l2 {
+
+}

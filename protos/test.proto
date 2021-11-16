@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "data_type.proto";
+// ---------------------------
+// ---------Client<->Publisher
+// ---------------------------
+
+
+message content_request {
+
+    
+    bytes client_public_key = 1;
+
+    string file_path = 2;
+
+    uint64 sequence_no = 3;
+
+    uint64 range_begin = 4;
+
+    uint64 range_end = 5;
+
+
+} 
+
+message ticket_bundle_response {
+
+    uint64 request_sequence_no = 1;
+
+    repeated ticket_bundle bundles = 2;
+
+    error error_info = 3;
+}
+
+
+
+service client_to_publisher {
+    rpc request_content(content_request) returns (ticket_bundle_response) {}
+}
